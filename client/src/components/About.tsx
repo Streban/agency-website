@@ -176,7 +176,7 @@ const GlobeViz = () => {
 
 export default function About() {
   return (
-    <section id="about" className="py-40 bg-black relative z-10 overflow-hidden">
+    <section id="about" className="scroll-mt-28 py-40 bg-black relative z-10 overflow-hidden">
       
       {/* Grid Background */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>

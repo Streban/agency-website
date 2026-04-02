@@ -66,7 +66,7 @@ export default function Hero() {
                 >
                   <Link
                     href="/#contact"
-                    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-semibold tracking-wide text-white shadow-lg shadow-accent/30 no-underline transition-all duration-300 hover:bg-accent/90 hover:shadow-[0_0_48px_-12px_hsl(210_100%_45%_/_0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black group"
+                    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold tracking-wide text-black shadow-lg shadow-black/25 no-underline transition-all duration-300 hover:bg-neutral-100 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black group"
                   >
                     Get started
                     <ArrowRight

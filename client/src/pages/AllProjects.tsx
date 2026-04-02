@@ -3,13 +3,11 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomCursor from "@/components/CustomCursor";
 import { allProjects } from "@/data/projects";
 
 export default function AllProjects() {
   return (
     <div className="bg-black min-h-screen text-white selection:bg-white selection:text-black cursor-none">
-      <CustomCursor />
       <div className="noise-overlay" />
       <Navbar />
       <main className="pt-32 md:pt-40 pb-24 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto">

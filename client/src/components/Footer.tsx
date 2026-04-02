@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white pt-32 pb-12 overflow-hidden">
+    <footer id="contact" className="bg-black text-white pt-32 pb-12 overflow-hidden scroll-mt-28">
       <div className="container mx-auto px-6">
         <div className="border-b border-white/10 pb-20 mb-20">
           <h2 className="text-[10vw] leading-[0.85] font-bold tracking-tighter mb-10">

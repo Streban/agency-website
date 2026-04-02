@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "wouter";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
-  const [, navigate] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -51,10 +50,10 @@ export default function Navbar() {
           `}
         >
           {/* Logo */}
-          <a href="/" className="text-xl font-bold tracking-tight z-50 flex items-center gap-1">
-            <span className={isScrolled ? "text-white" : "text-white"}>Dev</span>
+          <Link href="/" className="text-xl font-bold tracking-tight z-50 flex items-center gap-1 no-underline text-inherit">
+            <span className="text-white">Dev</span>
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
@@ -67,18 +66,18 @@ export default function Navbar() {
 
           {/* Action Button */}
           <div className="hidden md:block">
-            <Button 
-              size="sm" 
+            <Button
+              asChild
+              size="sm"
               className={`
-                rounded-full font-medium transition-all duration-300
+                rounded-full font-medium transition-all duration-300 no-underline
                 ${isScrolled
                   ? "bg-white text-black hover:bg-white/90 h-9 px-5"
                   : "bg-white text-black hover:bg-white/90 h-10 px-6"
                 }
               `}
-              onClick={() => navigate("/#contact")}
             >
-              Hire Me
+              <Link href="/hire">Hire Me</Link>
             </Button>
           </div>
 
@@ -121,15 +120,17 @@ export default function Navbar() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1 }}
             >
-              <Button 
-                size="lg" 
-                className="rounded-full bg-accent text-white hover:bg-accent/90 mt-8 px-8"
-                onClick={() => {
-                  navigate("/#contact");
-                  setMobileMenuOpen(false);
-                }}
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-accent text-white hover:bg-accent/90 mt-8 px-8 no-underline"
               >
-                Let's Talk
+                <Link
+                  href="/hire"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Hire Me
+                </Link>
               </Button>
             </motion.div>
           </motion.div>

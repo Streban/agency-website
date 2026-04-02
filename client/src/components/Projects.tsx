@@ -4,18 +4,25 @@ import { Link } from "wouter";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { homeFeaturedProjects } from "@/data/projects";
 
+const workIntroStats = [
+  { label: "Total experience", value: "5+", suffix: "years" },
+  { label: "Projects delivered", value: "150+", suffix: "" },
+  { label: "Success score", value: "98", suffix: "%" },
+  { label: "Total clients", value: "50+", suffix: "" },
+] as const;
+
 export default function Projects() {
   const targetRef = useRef<HTMLDivElement>(null);
   const panelCount = 1 + homeFeaturedProjects.length + 1;
   const sectionVh = Math.round(200 * (panelCount / 3));
   const xEndPercent = useMemo(
     () => -((panelCount - 1) / panelCount) * 100,
-    [panelCount]
+    [panelCount],
   );
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start start", "end end"]
+    offset: ["start start", "end end"],
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", `${xEndPercent}%`]);
@@ -25,7 +32,7 @@ export default function Projects() {
       id="projects"
       ref={targetRef}
       style={{ height: `${sectionVh}vh` }}
-      className="relative bg-neutral-950"
+      className="relative bg-neutral-950 scroll-mt-28"
     >
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         <div className="absolute top-12 left-8 md:left-24 z-30 pointer-events-none mix-blend-difference">
@@ -41,22 +48,102 @@ export default function Projects() {
         </div>
 
         <motion.div style={{ x }} className="flex gap-0 h-full items-center">
-          <div className="w-screen h-full flex flex-col justify-center px-8 md:px-24 flex-shrink-0 border-r border-white/5">
-            <div className="max-w-2xl">
-              <span className="text-accent text-sm font-bold tracking-[0.2em] uppercase mb-8 block">
-                Selected Projects
-              </span>
-              <h3 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
-                Crafting digital <br />
-                <span className="text-white/40">masterpieces.</span>
-              </h3>
-              <p className="text-xl text-white/60 max-w-lg leading-relaxed mb-12">
-                A curated selection of projects that push the boundaries of
-                interaction design and technical performance.
-              </p>
-              <div className="flex items-center gap-4 text-white/40 text-sm tracking-widest uppercase">
-                <div className="w-12 h-[1px] bg-white/20"></div>
-                Scroll to explore
+          <div className="w-screen h-full flex flex-col justify-center px-8 md:px-16 lg:px-24 flex-shrink-0 border-r border-white/5">
+            <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_minmax(260px,380px)] gap-12 lg:gap-16 xl:gap-24 items-center">
+              <div className="max-w-2xl">
+                <span className="text-accent text-sm font-bold tracking-[0.2em] uppercase mb-6 md:mb-8 block">
+                  Selected Projects
+                </span>
+                <h3 className="text-5xl md:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight">
+                  Crafting digital <br />
+                  <span className="text-white/40">masterpieces.</span>
+                </h3>
+                <p className="text-lg md:text-xl text-white/60 max-w-lg leading-relaxed mb-8 md:mb-12">
+                  A curated selection of projects that push the boundaries of
+                  interaction design and technical performance.
+                </p>
+                <div className="flex items-center gap-4 text-white/40 text-sm tracking-widest uppercase">
+                  <div className="w-12 h-[1px] bg-white/20 shrink-0" />
+                  Scroll to explore
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full lg:justify-self-end">
+                {workIntroStats.map((stat, i) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{
+                      opacity: 0,
+                      y: 36,
+                      scale: 0.9,
+                      rotate: i % 2 === 0 ? -2.5 : 2.5,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      rotate: 0,
+                    }}
+                    viewport={{ once: true, margin: "-48px" }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 280,
+                      damping: 24,
+                      mass: 0.85,
+                      delay: i * 0.1,
+                    }}
+                    whileHover={{
+                      y: -10,
+                      scale: 1.045,
+                      rotate: i % 2 === 0 ? -0.8 : 0.8,
+                      transition: {
+                        type: "spring",
+                        stiffness: 440,
+                        damping: 20,
+                      },
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative overflow-hidden rounded-2xl border border-white/8 bg-white/2 p-4 sm:p-5 md:p-6 shadow-lg shadow-black/30 transition-shadow duration-500 hover:border-accent/40 hover:shadow-[0_24px_48px_-16px_hsl(210_100%_45%/0.35)]"
+                  >
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-br from-accent/25 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute -left-1/3 top-0 h-full w-2/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/12 to-transparent opacity-0 translate-x-[-120%] transition-all duration-700 ease-out group-hover:opacity-100 group-hover:translate-x-[180%]"
+                    />
+                    <div
+                      aria-hidden
+                      className="absolute bottom-0 left-3 right-3 h-px rounded-full bg-gradient-to-r from-transparent via-accent to-transparent origin-center scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+                    />
+                    <div className="relative z-[1]">
+                      <p className="text-[10px] sm:text-xs font-semibold tracking-[0.18em] uppercase text-white/45 leading-snug mb-3 transition-colors duration-500 group-hover:text-accent">
+                        {stat.label}
+                      </p>
+                      <p className="flex flex-wrap items-baseline gap-1 text-3xl sm:text-4xl md:text-[2.75rem] font-bold tabular-nums tracking-tight leading-none">
+                        <motion.span
+                          className="inline-block text-white transition-[color,filter] duration-300 ease-out group-hover:text-accent group-hover:drop-shadow-[0_0_24px_hsl(210_100%_45%/0.45)]"
+                          whileHover={{
+                            scale: 1.06,
+                            transition: {
+                              type: "spring",
+                              stiffness: 500,
+                              damping: 16,
+                            },
+                          }}
+                        >
+                          {stat.value}
+                        </motion.span>
+                        {stat.suffix ? (
+                          <span className="text-lg sm:text-xl md:text-2xl font-semibold text-white/50 transition-colors duration-300 group-hover:text-white/70">
+                            {stat.suffix}
+                          </span>
+                        ) : null}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
@@ -116,7 +203,7 @@ export default function Projects() {
             </div>
           ))}
 
-          <div className=" h-full flex flex-col items-start justify-center flex-shrink-0 border-r border-white/5 px-8 md:px-24 pt-28 md:pt-36 bg-gradient-to-br from-neutral-950 via-neutral-950 to-accent/15">
+          <div className="w-[99%] h-full flex flex-col items-start justify-center shrink-0 border-r border-white/5 px-8 md:px-24 pt-28 md:pt-36 pb-16 md:pb-24 bg-linear-to-br from-neutral-950 via-neutral-950 to-accent/15 mr-102">
             <div className="max-w-xl text-center">
               <span className="text-accent text-sm font-bold tracking-[0.2em] uppercase mb-6 block">
                 Full archive

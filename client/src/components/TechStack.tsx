@@ -9,7 +9,7 @@ const technologies = [
 
 export default function TechStack() {
   return (
-    <section id="stack" className="py-20 border-y border-white/5 bg-black/50 overflow-hidden">
+    <section id="stack" className="scroll-mt-28 py-20 border-y border-white/5 bg-black/50 overflow-hidden">
       <div className="container mx-auto px-6 mb-10 text-center">
          <p className="text-sm text-muted-foreground uppercase tracking-widest">Technologies & Tools</p>
       </div>

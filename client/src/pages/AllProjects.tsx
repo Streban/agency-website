@@ -4,8 +4,16 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { allProjects } from "@/data/projects";
+import { useSeo } from "@/hooks/useSeo";
 
 export default function AllProjects() {
+  useSeo({
+    title: "All projects | MERN & React Native Developer",
+    description:
+      "Full project archive — MERN stack, React Native apps, and product engineering work.",
+    path: "/projects",
+  });
+
   return (
     <div className="bg-black min-h-screen text-white selection:bg-white selection:text-black cursor-none">
       <div className="noise-overlay" />

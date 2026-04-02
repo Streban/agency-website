@@ -40,25 +40,33 @@ export default function Navbar() {
           isScrolled ? "pt-4" : "pt-6"
         }`}
       >
-        <div 
+        <div
           className={`
             relative flex items-center justify-between px-6 transition-all duration-500 ease-in-out
-            ${isScrolled 
-              ? "w-[90%] md:w-[600px] h-14 rounded-full bg-black/50 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/20" 
-              : "w-full container bg-transparent h-20"
+            ${
+              isScrolled
+                ? "w-[90%] md:w-[600px] h-14 rounded-full bg-black/50 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/20"
+                : "w-full container bg-transparent h-20"
             }
           `}
         >
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold tracking-tight z-50 flex items-center gap-1 no-underline text-inherit">
-            <span className="text-white">Dev</span>
+          <Link
+            href="/"
+            className="text-xl font-bold tracking-tight z-50 flex items-center gap-1 no-underline text-inherit"
+          >
+            <span className="text-white">Aussie Devs</span>
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link key={link.name} href={link.href} className={linkClass(isScrolled)}>
+              <Link
+                key={link.name}
+                href={link.href}
+                className={linkClass(isScrolled)}
+              >
                 {link.name}
               </Link>
             ))}
@@ -71,9 +79,10 @@ export default function Navbar() {
               size="sm"
               className={`
                 rounded-full font-medium transition-all duration-300 no-underline
-                ${isScrolled
-                  ? "bg-white text-black hover:bg-white/90 h-9 px-5"
-                  : "bg-white text-black hover:bg-white/90 h-10 px-6"
+                ${
+                  isScrolled
+                    ? "bg-white text-black hover:bg-white/90 h-9 px-5"
+                    : "bg-white text-black hover:bg-white/90 h-10 px-6"
                 }
               `}
             >
@@ -125,10 +134,7 @@ export default function Navbar() {
                 size="lg"
                 className="rounded-full bg-accent text-white hover:bg-accent/90 mt-8 px-8 no-underline"
               >
-                <Link
-                  href="/hire"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
+                <Link href="/hire" onClick={() => setMobileMenuOpen(false)}>
                   Hire Me
                 </Link>
               </Button>

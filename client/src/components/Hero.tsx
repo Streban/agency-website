@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowDownRight, ArrowRight } from "lucide-react";
+import { ArrowDownRight, ArrowRight, Zap } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Hero() {
-
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black flex flex-col justify-center">
       {/* Background - Kinetic Typography / Abstract */}
@@ -21,25 +20,35 @@ export default function Hero() {
             className="flex items-center gap-4 mb-8"
           >
             <div className="h-[1px] w-20 bg-white/30" />
-            <span className="text-sm font-medium tracking-widest uppercase text-white/60">Portfolio 2026</span>
+            <span className="text-sm font-medium tracking-widest uppercase text-white/60">
+              Portfolio 2026
+            </span>
           </motion.div>
 
-          <div className="overflow-hidden">
+          <div className="overflow-hidden z-40">
             <motion.h1
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+              transition={{
+                duration: 1,
+                ease: [0.16, 1, 0.3, 1],
+                delay: 0.1,
+              }}
               className="text-[12vw] leading-[0.85] font-bold tracking-tighter text-white mix-blend-difference"
             >
               CREATIVE
             </motion.h1>
           </div>
-          
+
           <div className="overflow-hidden">
             <motion.h1
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              transition={{
+                duration: 1,
+                ease: [0.16, 1, 0.3, 1],
+                delay: 0.2,
+              }}
               className="text-[12vw] leading-[0.85] font-bold tracking-tighter text-white/30"
             >
               DEVELOPER
@@ -54,15 +63,19 @@ export default function Hero() {
               className="max-w-xl"
             >
               <p className="text-xl md:text-2xl text-white/70 font-light leading-relaxed mb-8">
-                Specializing in <span className="text-white">React Native</span> &{" "}
-                <span className="text-white">MERN Stack</span>. Building digital products that
-                define the future.
+                Specializing in <span className="text-white">Website</span> &{" "}
+                <span className="text-white">Mobile App</span> development.
+                Building digital products that define the future.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                 <motion.div
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.72, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.72,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                 >
                   <Link
                     href="/#contact"
@@ -79,7 +92,11 @@ export default function Hero() {
                 <motion.div
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.82, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.82,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                 >
                   <Link
                     href="/projects"
@@ -98,7 +115,11 @@ export default function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
               className="hidden md:flex shrink-0 w-32 h-32 rounded-full border border-white/20 items-center justify-center group hover:bg-white hover:text-black transition-colors duration-500"
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               <ArrowDownRight className="w-10 h-10 transform group-hover:rotate-45 transition-transform duration-500" />
             </motion.button>

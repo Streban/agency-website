@@ -8,10 +8,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { useSeo } from "@/hooks/useSeo";
 
 const FORMSPREE_ACTION = "https://formspree.io/f/mgopldvd";
 
 export default function HireMe() {
+  useSeo({
+    title: "Hire me | MERN & React Native Developer",
+    description:
+      "Start a project — web apps, mobile, APIs, and product delivery. Send a brief and timeline.",
+    path: "/hire",
+  });
+
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");

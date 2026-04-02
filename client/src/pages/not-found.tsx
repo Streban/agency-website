@@ -1,7 +1,17 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
+import { useLocation } from "wouter";
+import { useSeo } from "@/hooks/useSeo";
 
 export default function NotFound() {
+  const [loc] = useLocation();
+  useSeo({
+    title: "Page not found",
+    description: "This page does not exist.",
+    path: loc || "/",
+    noindex: true,
+  });
+
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
       <Card className="w-full max-w-md mx-4">

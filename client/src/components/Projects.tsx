@@ -160,7 +160,9 @@ export default function Projects() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-[1.5s] ease-out"
+                    className={`w-full h-full ${
+                      project.imageFit === "contain" ? "object-contain" : "object-cover"
+                    } transform scale-100 group-hover:scale-110 transition-transform duration-[1.5s] ease-out`}
                   />
 
                   <div className="absolute top-8 right-8 bg-white/10 backdrop-blur-md border border-white/10 px-6 py-2 rounded-full z-20">

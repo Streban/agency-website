@@ -39,8 +39,7 @@ export default function AllProjects() {
             Archive
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] mb-6">
-            All{" "}
-            <span className="text-white/35">projects</span>
+            All <span className="text-white/35">projects</span>
           </h1>
           <p className="text-lg md:text-xl text-white/55 max-w-2xl leading-relaxed">
             Full catalog of work — browse without the long horizontal scroll.
@@ -54,7 +53,10 @@ export default function AllProjects() {
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: Math.min(index * 0.06, 0.24) }}
+              transition={{
+                duration: 0.5,
+                delay: Math.min(index * 0.06, 0.24),
+              }}
               className="group flex flex-col rounded-[1.75rem] md:rounded-[2rem] border border-white/[0.08] bg-white/[0.02] overflow-hidden hover:border-white/[0.14] transition-colors duration-500"
             >
               <div className="relative overflow-hidden aspect-[16/10] shadow-2xl shadow-black/40">
@@ -62,7 +64,11 @@ export default function AllProjects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover scale-100 group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-out"
+                  className={`w-full h-full ${
+                    project.imageFit === "contain"
+                      ? "object-contain"
+                      : "object-cover"
+                  } scale-100 group-hover:scale-[1.03] transition-transform duration-[1.2s] ease-out`}
                 />
                 <div className="absolute top-4 right-4 md:top-5 md:right-5 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full z-20">
                   <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white">
